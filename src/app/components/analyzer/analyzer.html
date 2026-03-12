@@ -1,25 +1,41 @@
 <div class="container">
-<p><a href="https://github.com/engineer-br0/sql-query-analyzer-frontend">github link for frontend</a></p>
-  <p><a href="https://github.com/engineer-br0/sql-query-analyzer">github link for backend</a></p>
+
+  <div class="links">
+    <p>
+      <a href="https://github.com/engineer-br0/sql-query-analyzer-frontend" target="_blank">
+        Frontend GitHub
+      </a>
+    </p>
+
+    <p>
+      <a href="https://github.com/engineer-br0/sql-query-analyzer" target="_blank">
+        Backend GitHub
+      </a>
+    </p>
+  </div>
 
   <h1>SQL Query Analyzer</h1>
-  
+
   <textarea
     [(ngModel)]="query"
     placeholder="Enter SQL query"
-    rows="6"
-    cols="60">
+    class="query-box">
   </textarea>
 
-  <br><br>
+  <button *ngIf="!loading" (click)="analyze()" class="analyze-btn">
+    Analyze Query
+  </button>
 
-  <button (click)="analyze()">Analyze Query</button>
+  <p class="loading" *ngIf="loading">
+    Loading... please wait. Waking up server...
+    This may take up to a minute because the backend is hosted on a free instance.
+  </p>
 
-  <div *ngIf="result">
+  <div *ngIf="result" class="result-container">
 
     <h2>Analysis Result</h2>
 
-    <pre>{{ result | json }}</pre>
+    <pre class="result-box">{{ result | json }}</pre>
 
   </div>
 

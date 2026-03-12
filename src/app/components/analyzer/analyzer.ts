@@ -13,14 +13,16 @@ export class AnalyzerComponent {
 
   query: string = "";
   result: any = null;
+  loading: boolean = false;
 
   constructor(private sqlService: SqlService) {}
 
   analyze() {
-
+    this.loading = true;
     this.sqlService.analyzeQuery(this.query)
       .subscribe(response => {
         this.result = response;
+        this.loading = false;
       });
   }
 }
