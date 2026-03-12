@@ -1,0 +1,26 @@
+<div class="container">
+<p><a href="https://github.com/engineer-br0/sql-query-analyzer-frontend">github link for frontend</a></p>
+  <p><a href="https://github.com/engineer-br0/sql-query-analyzer">github link for backend</a></p>
+
+  <h1>SQL Query Analyzer</h1>
+  
+  <textarea
+    [(ngModel)]="query"
+    placeholder="Enter SQL query"
+    rows="6"
+    cols="60">
+  </textarea>
+
+  <br><br>
+
+  <button (click)="analyze()">Analyze Query</button>
+
+  <div *ngIf="result">
+
+    <h2>Analysis Result</h2>
+
+    <pre>{{ result | json }}</pre>
+
+  </div>
+
+</div>
