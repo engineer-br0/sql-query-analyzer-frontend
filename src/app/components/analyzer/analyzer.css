@@ -1,39 +1,50 @@
+/* Prevent global horizontal overflow */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
 /* Main container */
 
 .container {
+  width: 100%;
   max-width: 900px;
   margin: auto;
-  padding: 20px;
+  padding: 16px;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   gap: 16px;
   font-family: Arial, sans-serif;
 }
 
-/* Github links */
+/* Links */
 
 .links {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .links a {
   color: #2563eb;
-  text-decoration: none;
-  font-weight: 500;
+  word-break: break-all;
 }
 
 /* Title */
 
 h1 {
   text-align: center;
+  font-size: 26px;
 }
 
-/* SQL textarea */
+/* Textarea */
 
 .query-box {
   width: 100%;
+  max-width: 100%;
   min-height: 150px;
   padding: 12px;
   font-family: monospace;
@@ -41,23 +52,47 @@ h1 {
   border-radius: 8px;
   border: 1px solid #ccc;
   resize: vertical;
+  box-sizing: border-box;
 }
 
-/* Analyze button */
+/* Button */
 
 .analyze-btn {
-  width: fit-content;
-  padding: 10px 18px;
+  width: 100%;
+  padding: 12px;
   border: none;
   border-radius: 6px;
   background-color: #2563eb;
   color: white;
-  cursor: pointer;
   font-size: 16px;
+  cursor: pointer;
 }
 
 .analyze-btn:hover {
   background-color: #1d4ed8;
+}
+
+/* Result section */
+
+.result-container {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Result box */
+
+.result-box {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+  background: #111;
+  color: #00ff90;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  box-sizing: border-box;
 }
 
 /* Loading text */
@@ -67,31 +102,9 @@ h1 {
   color: #555;
 }
 
-/* Result section */
-
-.result-container {
-  width: 100%;
-}
-
-/* Result box */
-
-.result-box {
-  width: 100%;
-  overflow-x: auto;
-  background: #111;
-  color: #0f0;
-  padding: 15px;
-  border-radius: 8px;
-  font-size: 13px;
-}
-
-/* Mobile responsiveness */
+/* Mobile */
 
 @media (max-width: 600px) {
-
-  .container {
-    padding: 15px;
-  }
 
   h1 {
     font-size: 22px;
@@ -101,8 +114,8 @@ h1 {
     font-size: 13px;
   }
 
-  .analyze-btn {
-    width: 100%;
+  .result-box {
+    font-size: 12px;
   }
 
 }
